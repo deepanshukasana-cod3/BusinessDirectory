@@ -1,61 +1,27 @@
-// Array to store restaurant data
+// Array to store restaurant data including reviews and ratings
 const restaurants = [
   {
     name: "Hops n Grains",
     address: "Sector 9, Panchkula",
     image: "https://via.placeholder.com/400x250?text=Hops+n+Grains",
     description: "A renowned microbrewery offering freshly brewed beers and a diverse menu.",
-    reviews: []
+    reviews: [
+      { rating: 5, text: "Great beer selection! Loved the atmosphere." },
+      { rating: 4, text: "Nice place, but the food could be better." }
+    ],
+    language: "English"
   },
   {
     name: "JB’s Kitchen",
     address: "Phase 5, Mohali",
     image: "https://via.placeholder.com/400x250?text=JB%27s+Kitchen",
     description: "Known for its North Indian and Mughlai dishes, this restaurant is ideal for family outings.",
-    reviews: []
-  },
-  {
-    name: "Sagar Ratna",
-    address: "Sector 9, Panchkula",
-    image: "https://via.placeholder.com/400x250?text=Sagar+Ratna",
-    description: "Specializes in authentic South Indian cuisine, perfect for dosa and sambhar lovers.",
-    reviews: []
-  },
-  {
-    name: "The Escape",
-    address: "Sector 5, Panchkula",
-    image: "https://via.placeholder.com/400x250?text=The+Escape",
-    description: "A rooftop bar and restaurant offering a lively ambiance with live music.",
-    reviews: []
-  },
-  {
-    name: "Beige Cafe and Bakery",
-    address: "Sector 5, Panchkula",
-    image: "https://via.placeholder.com/400x250?text=Beige+Cafe+and+Bakery",
-    description: "A cozy cafe known for its bakery items and a variety of beverages.",
-    reviews: []
-  },
-  {
-    name: "Rozana – Indian Kitchen & Bar",
-    address: "MDC Sector 5, Panchkula",
-    image: "https://via.placeholder.com/400x250?text=Rozana",
-    description: "An open-air restaurant specializing in Mughlai, Bihari, and Assamese cuisines.",
-    reviews: []
-  },
-  {
-    name: "Inari",
-    address: "Sector 5, Panchkula",
-    image: "https://via.placeholder.com/400x250?text=Inari",
-    description: "Serves a variety of cuisines including North Indian, Mughlai, and desserts in a spacious setting.",
-    reviews: []
-  },
-  {
-    name: "High Note Rooftop Lounge & Bar",
-    address: "Sector 5, Panchkula",
-    image: "https://via.placeholder.com/400x250?text=High+Note+Rooftop",
-    description: "Features an aesthetically pleasing rooftop seating with a variety of Asian dishes.",
-    reviews: []
+    reviews: [
+      { rating: 4, text: "Amazing food! The dal makhani was superb." }
+    ],
+    language: "Hindi"
   }
+  // Add more restaurant entries here as needed
 ];
 
 // Function to render the restaurant directory
@@ -73,47 +39,85 @@ function renderDirectory() {
       <p><strong>Address:</strong> ${restaurant.address}</p>
       <p><strong>Description:</strong> ${restaurant.description}</p>
 
-      <div class="review-section" id="reviews-${index}">
-        <h3>Reviews</h3>
+      <div class="review-section">
+        <h3>Reviews:</h3>
+        ${renderReviews(restaurant.reviews, index)}
         <div class="review-input">
           <textarea id="review-input-${index}" placeholder="Write a review..."></textarea>
-          <button onclick="addReview(${index})">Submit Review</button>
-        </div>
-        <div id="reviews-list-${index}">
-          <!-- Reviews will be dynamically listed here -->
+          <div class="stars" id="stars-${index}">
+            <span onclick="setRating(${index}, 1)">★</span>
+            <span onclick="setRating(${index}, 2)">★</span>
+            <span onclick="setRating(${index}, 3)">★</span>
+            <span onclick="setRating(${index}, 4)">★</span>
+            <span onclick="setRating(${index}, 5)">★</span>
+          </div>
+          <button onclick="submitReview(${index})">Submit Review</button>
         </div>
       </div>
     `;
-
+    
     directory.appendChild(restaurantDiv);
-    renderReviews(index);
   });
 }
 
-// Function to add a review
-function addReview(restaurantIndex) {
-  const reviewInput = document.getElementById(`review-input-${restaurantIndex}`).value;
-  if (reviewInput) {
-    restaurants[restaurantIndex].reviews.push(reviewInput);
-    document.getElementById(`review-input-${restaurantIndex}`).value = ''; // Clear the review input
-    renderReviews(restaurantIndex);
+// Function to render reviews for each restaurant
+function renderReviews(reviews, index) {
+  let reviewsHtml = '';
+  reviews.forEach(review => {
+    reviewsHtml += `<p>${'★'.repeat(review.rating)} ${review.text}</p>`;
+  });
+  return reviewsHtml;
+}
+
+// Set the rating for a restaurant
+function setRating(index, rating) {
+  const stars = document.getElementById(`stars-${index}`).children;
+  Array.from(stars).forEach((star, i) => {
+    if (i < rating) {
+      star.style.color = 'gold';
+    } else {
+      star.style.color = 'gray';
+    }
+  });
+  restaurants[index].rating = rating;
+}
+
+// Submit the review
+function submitReview(index) {
+  const reviewText = document.getElementById(`review-input-${index}`).value;
+  const rating = restaurants[index].rating || 0;
+
+  if (reviewText && rating > 0) {
+    restaurants[index].reviews.push({ rating: rating, text: reviewText });
+    document.getElementById(`review-input-${index}`).value = '';
+    renderDirectory();
   } else {
-    alert("Please enter a review.");
+    alert("Please provide both a rating and a review.");
   }
 }
 
-// Function to render reviews for a restaurant
-function renderReviews(restaurantIndex) {
-  const reviewsList = document.getElementById(`reviews-list-${restaurantIndex}`);
-  reviewsList.innerHTML = '';
-
-  restaurants[restaurantIndex].reviews.forEach((review) => {
-    const reviewDiv = document.createElement('div');
-    reviewDiv.classList.add('review');
-    reviewDiv.innerHTML = `<p>${review}</p>`;
-    reviewsList.appendChild(reviewDiv);
+// Handle adding a new restaurant from the form
+document.getElementById('restaurantForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  
+  const name = document.getElementById('name').value;
+  const address = document.getElementById('address').value;
+  const image = document.getElementById('image').value;
+  const description = document.getElementById('description').value;
+  const language = document.getElementById('language').value;
+  
+  restaurants.push({
+    name,
+    address,
+    image,
+    description,
+    reviews: [],
+    language
   });
-}
 
-// Initial render of the directory
+  document.getElementById('restaurantForm').reset();
+  renderDirectory();
+});
+
+// Initial render
 renderDirectory();
