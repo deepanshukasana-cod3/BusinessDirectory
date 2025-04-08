@@ -7,7 +7,7 @@
 
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f0f0f0;
+  background: linear-gradient(45deg, #FF8C00, #FFD700);
   color: #333;
   line-height: 1.6;
 }
@@ -18,59 +18,35 @@ body {
   overflow: hidden;
 }
 
+/* Header with carousel */
 header {
-  background: #333;
-  color: #fff;
-  padding: 20px 0;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-header h1 {
-  font-size: 3rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.add-restaurant {
-  margin-top: 30px;
-  padding: 20px;
-  background: #333;
-  color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.add-restaurant h2 {
-  margin-bottom: 10px;
-}
-
-input[type="text"],
-input[type="url"],
-textarea {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  background: #f4f4f4;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(45deg, #4e73df, #1a73e8);
 }
 
-button {
-  padding: 10px 15px;
-  background: #28a745;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.3s ease;
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
 }
 
-button:hover {
-  background: #218838;
+.carousel-images {
+  display: flex;
+  transition: transform 1s ease;
 }
 
-/* Restaurant Cards */
+.carousel-images img {
+  width: 400px;
+  height: 250px;
+  object-fit: cover;
+  margin: 0 10px;
+}
+
+/* Restaurant Directory */
 .directory {
   display: flex;
   flex-wrap: wrap;
@@ -108,41 +84,84 @@ button:hover {
   color: #777;
 }
 
-/* Review Section */
+/* Review and Rating Section */
 .review-section {
   margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px solid #ddd;
 }
 
-.review-section h3 {
-  font-size: 1.2rem;
-  color: #333;
+.review-input {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.review-input textarea {
+textarea {
   width: 100%;
   padding: 10px;
-  margin-bottom: 10px;
   border-radius: 4px;
-  border: 1px solid #ddd;
   background: #f4f4f4;
+  border: 1px solid #ddd;
 }
 
-.review-input button {
-  padding: 10px 15px;
+button {
+  padding: 10px;
   background: #28a745;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-.review-input button:hover {
+button:hover {
   background: #218838;
 }
 
-/* Media Queries for responsiveness */
+/* Footer Form for Adding Business */
+footer {
+  margin-top: 50px;
+  background: #333;
+  color: #fff;
+  padding: 30px 20px;
+  border-radius: 8px;
+}
+
+footer h2 {
+  text-align: center;
+}
+
+footer form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 50%;
+  margin: auto;
+}
+
+footer input,
+footer textarea {
+  width: 100%;
+  padding: 12px;
+  background: #f4f4f4;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+footer button {
+  background: #007bff;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+footer button:hover {
+  background: #0056b3;
+}
+
+/* Media Queries */
 @media (max-width: 768px) {
   .restaurant {
     width: 45%;
