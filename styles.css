@@ -1,4 +1,4 @@
-/* Basic reset */
+/* General Styles */
 * {
   margin: 0;
   padding: 0;
@@ -12,6 +12,7 @@ body {
   line-height: 1.6;
 }
 
+/* Container for central alignment */
 .container {
   width: 80%;
   margin: auto;
@@ -24,8 +25,25 @@ header {
   overflow: hidden;
   position: relative;
   background: linear-gradient(45deg, #4e73df, #1a73e8);
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
 }
 
+.header-container h1 {
+  font-size: 3.5em;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.header-container p {
+  font-size: 1.5em;
+  margin: 20px 0;
+  font-weight: 300;
+}
+
+/* Carousel Styling */
 .carousel {
   display: flex;
   justify-content: center;
@@ -46,7 +64,7 @@ header {
   margin: 0 10px;
 }
 
-/* Restaurant Directory */
+/* Restaurant Directory Section */
 .directory {
   display: flex;
   flex-wrap: wrap;
