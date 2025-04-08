@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>snappy-biz-pages</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Business Directory</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Restaurant Business Directory</h1>
+    </header>
 
-    <meta property="og:title" content="snappy-biz-pages" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <!-- Add Restaurant Form -->
+    <div class="add-restaurant">
+      <h2>Add a New Restaurant</h2>
+      <input type="text" id="name" placeholder="Restaurant Name">
+      <input type="text" id="address" placeholder="Address">
+      <input type="url" id="image" placeholder="Image URL">
+      <textarea id="description" placeholder="Description"></textarea>
+      <button onclick="addRestaurant()">Add Restaurant</button>
+    </div>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+    <!-- Restaurant Directory -->
+    <div class="directory" id="restaurantDirectory">
+      <!-- Dynamic content will go here -->
+    </div>
+  </div>
 
-  <body>
-    <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+  <script src="scripts.js"></script>
+</body>
 </html>
