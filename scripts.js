@@ -3,7 +3,7 @@ let restaurants = [
   {
     name: "Hops n Grains",
     address: "Sector 9, Panchkula",
-    image: "images/restaurant1.jpg", // Ensure the image exists in the 'images' folder
+    image: "images1.webp", // Ensure the image exists in the 'images' folder
     description: "A renowned microbrewery offering freshly brewed beers and a diverse menu.",
     reviews: [
       { rating: 5, text: "Great beer selection! Loved the atmosphere." },
@@ -14,7 +14,7 @@ let restaurants = [
   {
     name: "JB’s Kitchen",
     address: "Phase 5, Mohali",
-    image: "images/restaurant2.jpg",
+    image: "images2.webp",
     description: "Known for its North Indian and Mughlai dishes, this restaurant is ideal for family outings.",
     reviews: [
       { rating: 4, text: "Amazing food! The dal makhani was superb." }
@@ -24,7 +24,7 @@ let restaurants = [
   {
     name: "The Café at JW Marriott",
     address: "Sector 35, Chandigarh",
-    image: "images/restaurant3.jpg",
+    image: "images3.webp",
     description: "A luxurious dining experience with international and Indian fusion cuisine.",
     reviews: [
       { rating: 5, text: "Excellent ambience and food. Perfect for fine dining!" }
@@ -34,7 +34,7 @@ let restaurants = [
   {
     name: "Sagar Ratna",
     address: "Sector 17, Chandigarh",
-    image: "images/restaurant4.jpg",
+    image: "images1.webp",
     description: "Famous for its South Indian cuisine, especially dosas and idlis.",
     reviews: [
       { rating: 4, text: "Delicious south Indian food. The dosas were crispy and tasty." }
@@ -44,7 +44,7 @@ let restaurants = [
   {
     name: "Bikanervala",
     address: "Sector 17, Chandigarh",
-    image: "images/restaurant5.jpg",
+    image: "images2.webp",
     description: "A vegetarian delight known for Indian sweets, chaats, and snacks.",
     reviews: [
       { rating: 4, text: "A great place for vegetarian food and sweets." }
@@ -54,7 +54,7 @@ let restaurants = [
   {
     name: "Kailash Parbat",
     address: "Sector 9, Panchkula",
-    image: "images/restaurant6.jpg",
+    image: "images3.webp",
     description: "Famous for its Peshawari cuisine and variety of tandoor dishes.",
     reviews: [
       { rating: 5, text: "Great ambiance and mouth-watering kebabs!" }
@@ -64,7 +64,7 @@ let restaurants = [
   {
     name: "Indian Coffee House",
     address: "Sector 17, Chandigarh",
-    image: "images/restaurant7.jpg",
+    image: "images2.webp",
     description: "A vintage coffee house offering simple meals and an old-school charm.",
     reviews: [
       { rating: 3, text: "The coffee is great, but the food is average." }
@@ -74,7 +74,7 @@ let restaurants = [
   {
     name: "The Rustic Door",
     address: "Sector 39, Chandigarh",
-    image: "images/restaurant8.jpg",
+    image: "images1.webp",
     description: "A cozy café serving continental dishes and fresh bakery items.",
     reviews: [
       { rating: 5, text: "Amazing food and an even better vibe. Great for brunch." }
@@ -84,7 +84,7 @@ let restaurants = [
   {
     name: "Swagath Restaurant",
     address: "Sector 26, Chandigarh",
-    image: "images/restaurant9.jpg",
+    image: "images2.webp",
     description: "Known for its seafood and traditional Punjabi dishes.",
     reviews: [
       { rating: 5, text: "The seafood was amazing, fresh, and delicious!" }
@@ -94,7 +94,7 @@ let restaurants = [
   {
     name: "Café JC’s",
     address: "Sector 35, Chandigarh",
-    image: "images/restaurant10.jpg",
+    image: "images3.webp",
     description: "A popular hangout spot known for its casual vibe, great food, and live music.",
     reviews: [
       { rating: 4, text: "Great place to hang out, food is good, but a bit noisy." }
@@ -104,7 +104,7 @@ let restaurants = [
   {
     name: "The Bhogpur Diner",
     address: "Sector 8, Mohali",
-    image: "images/restaurant11.jpg",
+    image: "images1.webp",
     description: "A local favorite offering traditional Indian thalis and snacks.",
     reviews: [
       { rating: 3, text: "The food is decent, but not too flavorful." }
