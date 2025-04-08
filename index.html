@@ -3,41 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Food Directory</title>
+  <title>Food Directory - Restaurant Business Directory</title>
   <link rel="stylesheet" href="styles.css">
-  <script src="scripts.js" defer></script>
 </head>
 <body>
-  <!-- Header Section for "Food Directory" -->
+  <!-- Header Section with Carousel of Business Images and Website Name -->
   <header>
-    <div class="header-container">
+    <div class="carousel">
+      <div class="carousel-images">
+        <img src="images/restaurant1.jpg" alt="Restaurant 1">
+        <img src="images/restaurant2.jpg" alt="Restaurant 2">
+        <img src="images/restaurant3.jpg" alt="Restaurant 3">
+        <img src="images/restaurant4.jpg" alt="Restaurant 4">
+      </div>
+    </div>
+    <div class="website-name">
       <h1>Food Directory</h1>
-      <p>Explore the best restaurants near you</p>
+      <p>Explore the best restaurants around you</p>
     </div>
   </header>
 
-  <!-- Restaurant Directory Section -->
-  <section id="restaurant-directory">
-    <!-- Dynamic restaurant listings will appear here -->
-  </section>
+  <div class="container">
+    <!-- Restaurant Directory -->
+    <div class="directory" id="restaurantDirectory">
+      <!-- Dynamically populated restaurant listings will appear here -->
+    </div>
 
-  <!-- Footer with Form to Add Restaurant -->
-  <footer>
-    <div class="footer-form">
+    <!-- Footer: Restaurant Details Form -->
+    <footer>
       <h2>Add Your Restaurant</h2>
       <form id="restaurantForm">
         <input type="text" id="name" placeholder="Restaurant Name" required>
-        <input type="text" id="address" placeholder="Restaurant Address" required>
-        <input type="text" id="image" placeholder="Image URL (path)" required>
-        <textarea id="description" placeholder="Restaurant Description" required></textarea>
-        <input type="text" id="language" placeholder="Language" required>
+        <input type="text" id="address" placeholder="Address" required>
+        <input type="url" id="image" placeholder="Image URL" required>
+        <textarea id="description" placeholder="Description" required></textarea>
+        <input type="text" id="language" placeholder="Preferred Language" required>
         <button type="submit">Add Restaurant</button>
       </form>
-    </div>
-  </footer>
-</body>
-</html>
-
+    </footer>
+  </div>
 
   <script src="scripts.js"></script>
 </body>
