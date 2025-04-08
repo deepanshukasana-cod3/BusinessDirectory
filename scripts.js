@@ -1,9 +1,9 @@
-// Array to store restaurant data including reviews and ratings
-const restaurants = [
+// Array to store restaurant data, including reviews and ratings
+let restaurants = [
   {
     name: "Hops n Grains",
     address: "Sector 9, Panchkula",
-    image: "https://via.placeholder.com/400x250?text=Hops+n+Grains",
+    image: "images/restaurant1.jpg",
     description: "A renowned microbrewery offering freshly brewed beers and a diverse menu.",
     reviews: [
       { rating: 5, text: "Great beer selection! Loved the atmosphere." },
@@ -14,14 +14,104 @@ const restaurants = [
   {
     name: "JB’s Kitchen",
     address: "Phase 5, Mohali",
-    image: "https://via.placeholder.com/400x250?text=JB%27s+Kitchen",
+    image: "images/restaurant2.jpg",
     description: "Known for its North Indian and Mughlai dishes, this restaurant is ideal for family outings.",
     reviews: [
       { rating: 4, text: "Amazing food! The dal makhani was superb." }
     ],
     language: "Hindi"
+  },
+  {
+    name: "The Café at JW Marriott",
+    address: "Sector 35, Chandigarh",
+    image: "images/restaurant3.jpg",
+    description: "A luxurious dining experience with international and Indian fusion cuisine.",
+    reviews: [
+      { rating: 5, text: "Excellent ambience and food. Perfect for fine dining!" }
+    ],
+    language: "English"
+  },
+  {
+    name: "Sagar Ratna",
+    address: "Sector 17, Chandigarh",
+    image: "images/restaurant4.jpg",
+    description: "Famous for its South Indian cuisine, especially dosas and idlis.",
+    reviews: [
+      { rating: 4, text: "Delicious south Indian food. The dosas were crispy and tasty." }
+    ],
+    language: "Hindi"
+  },
+  {
+    name: "Bikanervala",
+    address: "Sector 17, Chandigarh",
+    image: "images/restaurant5.jpg",
+    description: "A vegetarian delight known for Indian sweets, chaats, and snacks.",
+    reviews: [
+      { rating: 4, text: "A great place for vegetarian food and sweets." }
+    ],
+    language: "Hindi"
+  },
+  {
+    name: "Kailash Parbat",
+    address: "Sector 9, Panchkula",
+    image: "images/restaurant6.jpg",
+    description: "Famous for its Peshawari cuisine and variety of tandoor dishes.",
+    reviews: [
+      { rating: 5, text: "Great ambiance and mouth-watering kebabs!" }
+    ],
+    language: "Hindi"
+  },
+  {
+    name: "Indian Coffee House",
+    address: "Sector 17, Chandigarh",
+    image: "images/restaurant7.jpg",
+    description: "A vintage coffee house offering simple meals and an old-school charm.",
+    reviews: [
+      { rating: 3, text: "The coffee is great, but the food is average." }
+    ],
+    language: "English"
+  },
+  {
+    name: "The Rustic Door",
+    address: "Sector 39, Chandigarh",
+    image: "images/restaurant8.jpg",
+    description: "A cozy café serving continental dishes and fresh bakery items.",
+    reviews: [
+      { rating: 5, text: "Amazing food and an even better vibe. Great for brunch." }
+    ],
+    language: "English"
+  },
+  {
+    name: "Swagath Restaurant",
+    address: "Sector 26, Chandigarh",
+    image: "images/restaurant9.jpg",
+    description: "Known for its seafood and traditional Punjabi dishes.",
+    reviews: [
+      { rating: 5, text: "The seafood was amazing, fresh, and delicious!" }
+    ],
+    language: "Hindi"
+  },
+  {
+    name: "Café JC’s",
+    address: "Sector 35, Chandigarh",
+    image: "images/restaurant10.jpg",
+    description: "A popular hangout spot known for its casual vibe, great food, and live music.",
+    reviews: [
+      { rating: 4, text: "Great place to hang out, food is good, but a bit noisy." }
+    ],
+    language: "English"
+  },
+  {
+    name: "The Bhogpur Diner",
+    address: "Sector 8, Mohali",
+    image: "images/restaurant11.jpg",
+    description: "A local favorite offering traditional Indian thalis and snacks.",
+    reviews: [
+      { rating: 3, text: "The food is decent, but not too flavorful." }
+    ],
+    language: "Punjabi"
   }
-  // Add more restaurant entries here as needed
+  // Add more restaurant entries as needed
 ];
 
 // Function to render the restaurant directory
@@ -38,6 +128,7 @@ function renderDirectory() {
       <h2>${restaurant.name}</h2>
       <p><strong>Address:</strong> ${restaurant.address}</p>
       <p><strong>Description:</strong> ${restaurant.description}</p>
+      <p><strong>Language:</strong> ${restaurant.language}</p>
 
       <div class="review-section">
         <h3>Reviews:</h3>
@@ -106,6 +197,7 @@ document.getElementById('restaurantForm').addEventListener('submit', function(ev
   const description = document.getElementById('description').value;
   const language = document.getElementById('language').value;
   
+  // Add new restaurant to the array
   restaurants.push({
     name,
     address,
@@ -115,9 +207,12 @@ document.getElementById('restaurantForm').addEventListener('submit', function(ev
     language
   });
 
+  // Reset form after submission
   document.getElementById('restaurantForm').reset();
+
+  // Re-render the restaurant directory with the new data
   renderDirectory();
 });
 
-// Initial render
+// Initial render when the page loads
 renderDirectory();
