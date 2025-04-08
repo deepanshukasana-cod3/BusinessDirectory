@@ -3,7 +3,7 @@ let restaurants = [
   {
     name: "Hops n Grains",
     address: "Sector 9, Panchkula",
-    image: "images/restaurant1.jpg",
+    image: "images/restaurant1.jpg", // Ensure the image exists in the 'images' folder
     description: "A renowned microbrewery offering freshly brewed beers and a diverse menu.",
     reviews: [
       { rating: 5, text: "Great beer selection! Loved the atmosphere." },
@@ -111,14 +111,19 @@ let restaurants = [
     ],
     language: "Punjabi"
   }
-  // Add more restaurant entries as needed
 ];
 
 // Function to render the restaurant directory
 function renderDirectory() {
   const directory = document.getElementById('restaurantDirectory');
-  directory.innerHTML = '';
+  directory.innerHTML = '';  // Clear existing content
 
+  // Check if restaurants array is not empty
+  if (restaurants.length === 0) {
+    directory.innerHTML = "<p>No restaurants available at the moment.</p>";
+  }
+
+  // Loop through restaurants array to display each restaurant
   restaurants.forEach((restaurant, index) => {
     const restaurantDiv = document.createElement('div');
     restaurantDiv.classList.add('restaurant');
